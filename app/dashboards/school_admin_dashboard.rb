@@ -27,6 +27,13 @@ class SchoolAdminDashboard < UserDashboard
     school
   ].freeze
 
+  COLLECTION_ATTRIBUTES = %i[
+    id
+    name
+    email
+    school
+  ].freeze
+  
   def display_resource(user)
     "SchoolAdmin ##{user.name}"
   end

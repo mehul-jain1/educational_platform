@@ -13,6 +13,9 @@ class BatchDashboard < Administrate::BaseDashboard
     start_date: Field::Date,
     end_date: Field::Date,
     school: Field::BelongsTo,
+    active_enrollments: Field::HasMany,
+    pending_enrollments: Field::HasMany,
+    rejected_enrollments: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -38,6 +41,9 @@ class BatchDashboard < Administrate::BaseDashboard
     start_date
     end_date
     school
+    active_enrollments
+    pending_enrollments
+    rejected_enrollments
     created_at
     updated_at
   ].freeze

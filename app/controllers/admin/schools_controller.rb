@@ -1,5 +1,4 @@
 class Admin::SchoolsController < Admin::ApplicationController
-  before_action :authorize_access
 private
 
   def scoped_resource
@@ -11,11 +10,13 @@ private
     end
   end
 
-  def authorize_access
-    redirect_to root_path, alert: "You do not have permission to perform this action." unless valid_action?(params[:action])
+  def authorize_resource(resource)
+    unless show_action?(params[:action], resource)
+      raise AuthorizationError
+    end
   end
 
-  def valid_action?(name, resource = resource_class)
+  def show_action?(name, resource = resource_class)
     return true if current_user.admin?
     return false unless current_user.admin? || current_user.school_admin?
     return false if current_user.school_admin? && %w[new create destroy].include?(name.to_s)

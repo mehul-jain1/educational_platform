@@ -11,7 +11,7 @@ class EnrollmentDashboard < Administrate::BaseDashboard
     student: Field::BelongsTo,
     batch: Field::BelongsTo,
     id: Field::Number,
-    status: Field::Number,
+    status: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -25,6 +25,7 @@ class EnrollmentDashboard < Administrate::BaseDashboard
     student
     batch
     id
+    status
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     resources :admins
     resources :school_admins
     resources :students
-    resources :batches
+    resources :batches do
+      member do
+        post :requests, to: 'enrollments#create_request', as: :create_request
+      end
+    end
+
     resources :courses
     resources :enrollments
     resources :schools

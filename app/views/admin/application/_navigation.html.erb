@@ -22,5 +22,9 @@ as defined by the routes in the `admin/` namespace
     <%= link_to "Batches", admin_batches_path, class: "navigation__link navigation__link--#{current_page?('admin/batches') ? 'active': ''}"%>
     <%= link_to "Students", admin_students_path, class: "navigation__link navigation__link--#{current_page?('admin/students') ? 'active': ''}"%>
     <%= link_to "Enrollments", admin_enrollments_path, class: "navigation__link navigation__link--#{current_page?('admin/enrollments') ? 'active': ''}"%>
+  <% elsif @current_user.student? %>
+    <%= link_to "Courses", admin_courses_path, class: "navigation__link navigation__link--#{current_page?('admin/courses') ? 'active': ''}"%>
+    <%= link_to "Batches", admin_batches_path, class: "navigation__link navigation__link--#{current_page?('admin/batches') ? 'active': ''}"%>
+    <%= link_to "Enrollments", admin_enrollments_path, class: "navigation__link navigation__link--#{current_page?('admin/enrollments') ? 'active': ''}"%>
   <% end %>
 </nav>

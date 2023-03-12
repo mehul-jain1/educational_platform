@@ -7,8 +7,9 @@ private
 
   def authorize_resource(resource)
     unless show_action?(params[:action], resource)
-      redirect_to root_path, alert: "You do not have permission to access this page."
+       raise AuthorizationError
     end
+
   end
 
   def show_action?(action, resource)

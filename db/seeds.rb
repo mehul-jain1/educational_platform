@@ -33,17 +33,17 @@
 
 # Students
 
- u = Student.new(name: 'Student 1', email: 'student1@gmail.com', password: 'hi123456', role: 'Student', school: s1)
- u.save!
+ su1 = Student.new(name: 'Student 1', email: 'student1@gmail.com', password: 'hi123456', role: 'Student', school: s1)
+ su1.save!
 
- u = Student.new(name: 'Student 2', email: 'student2@gmail.com', password: 'hi123456', role: 'Student', school: s1)
- u.save!
+ su2 = Student.new(name: 'Student 2', email: 'student2@gmail.com', password: 'hi123456', role: 'Student', school: s1)
+ su2.save!
 
- u = Student.new(name: 'Student 1', email: 'student3@gmail.com', password: 'hi123456', role: 'Student', school: s2)
- u.save!
+ su3= Student.new(name: 'Student 1', email: 'student3@gmail.com', password: 'hi123456', role: 'Student', school: s2)
+ su3.save!
 
- u = Student.new(name: 'Student 2', email: 'student4@gmail.com', password: 'hi123456', role: 'Student', school: s2)
- u.save!
+ su4= Student.new(name: 'Student 2', email: 'student4@gmail.com', password: 'hi123456', role: 'Student', school: s2)
+ su4.save!
 
 
  # Course
@@ -64,14 +64,26 @@
 
 # Batch
 
- b = Batch.new(name: 'Batch 1', start_date: '2023-3-12', end_date: '2023-3-29', school: s1)
- b.save!
+ b1 = Batch.new(name: 'Batch 1', start_date: '2023-3-12', end_date: '2023-3-29', school: s1)
+ b1.save!
 
- b = Batch.new(name: 'Batch 2', start_date: '2023-3-12', end_date: '2023-3-29', school: s1)
- b.save!
+ b2 = Batch.new(name: 'Batch 2', start_date: '2023-3-12', end_date: '2023-3-29', school: s1)
+ b2.save!
 
- b = Batch.new(name: 'Batch 1', start_date: '2023-3-12', end_date: '2023-3-29', school: s2)
- b.save!
+ b3= Batch.new(name: 'Batch 1', start_date: '2023-3-12', end_date: '2023-3-29', school: s2)
+ b3.save!
 
- b = Batch.new(name: 'Batch 2', start_date: '2023-3-12', end_date: '2023-3-29', school: s2)
- b.save!
+ b4 = Batch.new(name: 'Batch 2', start_date: '2023-3-12', end_date: '2023-3-29', school: s2)
+ b4.save!
+
+
+ # Enrollments
+
+ e1 = Enrollment.new(batch: b1, student: su1, status: :active)
+ e1.save!
+
+ e2 = Enrollment.new(batch: b1, student: su2, status: :pending)
+ e2.save!
+
+ e3 = Enrollment.new(batch: b3, student: su3, status: :active)
+ e3.save!
