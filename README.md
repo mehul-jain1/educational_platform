@@ -10,7 +10,10 @@ Things you may want to cover:
 
 * Rails version
   * `6.0.0`
- 
+  
+ * PostgresSql version
+  * `psql (PostgreSQL) 11.19`
+
 * Running instructions
   * `rake db:setup`
   * `rails s`
